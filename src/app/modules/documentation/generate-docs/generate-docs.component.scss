@@ -1,0 +1,66 @@
+@use "src/assets/styles/colors" as colors;
+
+$custom-primary: #3F51B5;
+$custom-accent: #FF9800;
+
+.generate-docs-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .flow-select {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+
+    .mat-form-field, .register-flow-btn {
+      flex: 1;
+    }
+
+    .register-flow-btn {
+      max-width: fit-content;
+      background: colors.$primary;
+      color: colors.$color-white;
+
+      &:hover {
+        opacity: .5;
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+::ng-deep .mat-card-header {
+  .mat-card-header-text {
+    margin: 0;
+  }
+}
+
+.generate-docs-card {
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 1);
+  padding: 30px;
+  border-radius: 10px;
+  background: none;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    max-width: none;
+    height: 100vh;
+  }
+}
+
+.form-card-title {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+

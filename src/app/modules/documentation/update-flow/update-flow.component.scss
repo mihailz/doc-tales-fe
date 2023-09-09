@@ -1,0 +1,115 @@
+@use "src/assets/styles/colors" as colors;
+
+$custom-primary: #3F51B5;
+$custom-accent: #FF9800;
+
+.update-flow-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+::ng-deep .mat-card-header {
+  .mat-card-header-text {
+    margin: 0;
+  }
+}
+
+.update-flow-card {
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 1);
+  padding: 30px;
+  border-radius: 10px;
+  background: none;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    max-width: none;
+    height: 100vh;
+  }
+
+  .update-flow-title {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .content-wrapper {
+    color: white;
+    display: flex;
+    border: 1px solid white;
+
+    .create-flow {
+      flex: 1;
+      border-right: 1px solid white;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .actions {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+
+        .add-btn, .save-btn {
+          background-color: colors.$primary;
+          border-radius: 5px;
+          color: colors.$color-white;
+
+          &:hover {
+            opacity: .7;
+          }
+        }
+      }
+    }
+
+    .current-flow {
+      color: white;
+      padding: 15px;
+      flex: 1;
+      background: #333333;
+      height: 400px;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        background: colors.$primary;
+        width: 10px !important;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #333333;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        width: 15px;
+        background-color: colors.$primary;
+      }
+    }
+
+    .current-flow-title {
+      font-size: 24px;
+      margin: 0;
+      padding-bottom: 10px;
+      border-bottom: 1px solid white;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    h3 {
+      font-size: 18px;
+      margin: 0;
+      padding: 5px 0;
+    }
+  }
+}
+
+

@@ -1,0 +1,25 @@
+<div class="generate-docs-container">
+  <mat-card class="generate-docs-card">
+    <mat-card-header>
+      <mat-card-title class="form-card-title">Document assistant</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="content-wrapper">
+        <div class="flow-select">
+          <div class="mat-form-field">
+            <mat-form-field appearance="outline">
+              <mat-label>Select Flow</mat-label>
+              <mat-select (selectionChange)="onFlowSelectionChange($event)" [placeholder]="'Select Flow'">
+                <mat-option *ngFor="let flow of documentationFlows" [value]="flow">
+                  {{flow.flowName}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <button class="register-flow-btn" (click)="navigateToRegisterFlowPage()" mat-flat-button color="primary">
+            <mat-icon>app_registration</mat-icon> Flow manager</button>
+        </div>
+        <app-text-editor *ngIf="selectedFlow"></app-text-editor>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

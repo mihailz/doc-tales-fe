@@ -1,0 +1,51 @@
+@use "src/assets/styles/colors" as colors;
+
+.text-editor-container {
+  border: 1px solid colors.$color-white;
+  width: 100%;
+  max-width: 100%;
+  background-color: #333333;
+
+  .editor-actions {
+    border-bottom: 1px solid colors.$color-white;
+    height: 40px;
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      color: colors.$color-white;
+      background: none;
+
+        &:hover {
+          opacity: .5;
+        }
+    }
+  }
+
+  .content {
+    padding: 12px;
+    min-height: 300px;
+    max-height: 300px;
+    overflow-y: scroll;
+    background: #333333;
+    color: colors.$color-white;
+
+
+
+    &::-webkit-scrollbar {
+      //width: 12px;
+      background: colors.$primary;
+      width: 10px !important; /* width of the entire scrollbar */
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #333333;
+      /* color of the tracking area */
+    }
+
+    &::-webkit-scrollbar-thumb {
+      width: 15px;
+      background-color: colors.$primary; /* color of the scroll thumb */
+    }
+  }
+}

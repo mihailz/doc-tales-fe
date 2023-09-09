@@ -1,0 +1,123 @@
+@use "src/assets/styles/colors" as colors;
+
+$custom-primary: #3F51B5;
+$custom-accent: #FF9800;
+
+  table {
+    width: 100%;
+    overflow: auto;
+
+      .edit-btn {
+        color: white;
+      }
+
+    .edit-btn, .delete-btn {
+      &:hover {
+        opacity: .7;
+      }
+    }
+  }
+
+  .user-role-form-field {
+    border: 1px solid white;
+    width: 100px;
+
+    //&::ng-deep.mat-select-arrow {
+    //  display: none;
+    //}
+  }
+
+  .mat-header-cell {
+    background-color: colors.$primary;
+    color: colors.$color-white;
+    padding: 5px;
+  }
+
+  .mat-cell {
+    padding: 5px;
+    color: colors.$color-white;
+  }
+
+  .mat-row {
+    &:nth-child(even) {
+      background-color: colors.$primary;
+      color: colors.$color-white;
+    }
+
+    &:nth-child(odd) {
+      background-color: colors.$color-black;
+      color: colors.$color-white;
+    }
+  }
+
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .mat-paginator {
+    background-color: colors.$color-black;
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    ::ng-deep .mat-paginator-page-size {
+      color: colors.$color-white;
+    }
+
+    ::ng-deep .mat-paginator-range-actions {
+      .mat-paginator-range-label {
+        color: colors.$color-white;
+      }
+
+      .mat-icon-button {
+        background-color: colors.$primary;
+        margin: 2px;
+        cursor: pointer;
+        color: colors.$color-white;
+      }
+    }
+  }
+
+.generate-flow-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+::ng-deep .mat-card-header {
+  .mat-card-header-text {
+    margin: 0;
+  }
+}
+
+.generate-flow-card {
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 1);
+  padding: 30px;
+  border-radius: 10px;
+  background: none;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    max-width: none;
+    height: 100vh;
+  }
+
+  .generate-flow-title {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .content-wrapper {
+    color: white;
+    display: flex;
+    border: 1px solid white;
+  }
+}
+
+

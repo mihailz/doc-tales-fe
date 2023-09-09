@@ -1,0 +1,53 @@
+<div class="text-editor-container">
+  <div class="editor-actions">
+    <button mat-flat-button  [matMenuTriggerFor]="generateMenu" matTooltip="Generate">
+      <mat-icon>bolt</mat-icon>
+    </button>
+
+    <mat-menu #generateMenu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>description</mat-icon>
+        Technical documentation
+      </button>
+      <button mat-menu-item>
+        <mat-icon>account_tree</mat-icon>
+        Business documentation
+      </button>
+    </mat-menu>
+
+    <button mat-flat-button matTooltip="Copy to clipboard">
+      <mat-icon>content_copy</mat-icon>
+    </button>
+
+    <mat-menu #generateMenu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>description</mat-icon>
+        Technical documentation
+      </button>
+      <button mat-menu-item>
+        <mat-icon>bolt</mat-icon>
+        Business documentation
+      </button>
+    </mat-menu>
+
+    <!-- Export Button with Dropdown Options -->
+    <button mat-flat-button [matMenuTriggerFor]="exportMenu" matTooltip="Export">
+      <mat-icon>file_download</mat-icon>
+    </button>
+
+    <mat-menu #exportMenu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>picture_as_pdf</mat-icon>
+        Export to PDF
+      </button>
+      <button mat-menu-item>
+        <mat-icon>description</mat-icon>
+        Export to Word
+      </button>
+    </mat-menu>
+
+  </div>
+  <div class="content">
+    <markdown class="variable-binding" [data]="markdown"></markdown>
+  </div>
+</div>

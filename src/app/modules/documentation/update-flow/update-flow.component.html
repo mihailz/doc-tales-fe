@@ -1,0 +1,54 @@
+<div class="update-flow-container">
+  <mat-card class="update-flow-card">
+    <mat-card-header>
+      <mat-card-title class="update-flow-title">Update Flow</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="content-wrapper">
+        <div class="create-flow">
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Flow Name</mat-label>
+              <input matInput />
+            </mat-form-field>
+            <div class="mat-form-field">
+              <mat-form-field appearance="outline">
+                <mat-label>Select Class</mat-label>
+                <mat-select
+                  [(ngModel)]="currentFlow.classes"
+                  multiple
+                  [placeholder]="'Select Class'">
+                  <mat-option *ngFor="let class of currentProject.classes" [value]="class">
+                    {{class.name}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+<!--            <div class="mat-form-field">-->
+<!--              <mat-form-field appearance="outline">-->
+<!--                <mat-label>Select Methods</mat-label>-->
+<!--                <mat-select multiple [disabled]="!selectedClass" (selectionChange)="onMethodsSelectionChange($event)"-->
+<!--                            [placeholder]="'Select Methods'">-->
+<!--                  <mat-option *ngFor="let method of selectedClass?.methods" [value]="method">-->
+<!--                    {{method}}</mat-option>-->
+<!--                </mat-select>-->
+<!--              </mat-form-field>-->
+<!--            </div>-->
+
+          </div>
+          <div class="actions">
+            <button class="add-btn" mat-flat-button>Add</button>
+            <button class="save-btn" mat-flat-button>Save</button>
+          </div>
+        </div>
+        <div class="current-flow">
+          <h3 class="current-flow-title">Current Flow</h3>
+
+          <div class="actions">
+            <button class="save-btn" mat-flat-button>Save</button>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
