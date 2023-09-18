@@ -13,13 +13,17 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatInputModule} from "@angular/material/input";
-import {MarkdownModule} from "ngx-markdown";
-import { GenerateFlowComponent } from './generate-flow/generate-flow.component';
-import { FlowsManagerComponent } from './flows-manager/flows-manager.component';
+import {GenerateFlowComponent} from './generate-flow/generate-flow.component';
+import {FlowsManagerComponent} from './flows-manager/flows-manager.component';
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
-import { UpdateFlowComponent } from './update-flow/update-flow.component';
+import {UpdateFlowComponent} from './update-flow/update-flow.component';
+import {MatTreeModule} from '@angular/material/tree';
+import {PlatformComponent} from './platform/platform.component';
+import {FlowTreeComponent} from './flow-tree/flow-tree.component';
+import {MarkdownModule} from "ngx-markdown";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -27,26 +31,30 @@ import { UpdateFlowComponent } from './update-flow/update-flow.component';
     TextEditorComponent,
     GenerateFlowComponent,
     FlowsManagerComponent,
-    UpdateFlowComponent
+    UpdateFlowComponent,
+    PlatformComponent,
+    FlowTreeComponent
   ],
-    imports: [
-        CommonModule,
-        DocumentationRoutingModule,
-        MatCardModule,
-        MatFormFieldModule,
-        MatSelectModule,
-        ReactiveFormsModule,
-        MatButtonModule,
-        MatTooltipModule,
-        MatIconModule,
-        MatMenuModule,
-        MatInputModule,
-        MarkdownModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatSortModule,
-        FormsModule,
-    ],
+  imports: [
+    CommonModule,
+    DocumentationRoutingModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatTooltipModule,
+    MatIconModule,
+    MatMenuModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    FormsModule,
+    MatTreeModule,
+    MarkdownModule,
+    MatProgressSpinnerModule
+  ],
   providers: [
     DocumentationService
   ]

@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 enum TableHeaderColumn {
   'id' = 'Id',
   'flowName' = 'Flow Name',
-  'projectId' = 'Project Id',
+  'projectName' = 'Project Name',
   'actions' = 'Actions'
 }
 
@@ -31,7 +31,7 @@ export class FlowsManagerComponent implements OnInit, OnDestroy {
   @ViewChild(MatSort) sort!: MatSort;
   isFetchingData: boolean = false;
   tableHeaderColumn = TableHeaderColumn as any;
-  displayedColumns: ITableColumns[] = ['id', 'flowName', 'projectId'];
+  displayedColumns: ITableColumns[] = ['id', 'flowName', 'projectName'];
   dataSource: MatTableDataSource<DocumentFlowModel> = new MatTableDataSource();
   displayedColumnsWithActions: string[] = [...this.displayedColumns, 'actions'];
   private _subs$ = new Subscription();
@@ -62,5 +62,9 @@ export class FlowsManagerComponent implements OnInit, OnDestroy {
 
   goToUpdateFlow(row: DocumentFlowModel): void {
     this._router.navigate([`/documentation/update-flow/${row.id}`]);
+  }
+
+  goBack(): void {
+    this._router.navigate(['/documentation/document-generator']);
   }
 }

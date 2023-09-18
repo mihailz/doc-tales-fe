@@ -1,6 +1,4 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
-import {DocumentationFilterFormModel} from "../../../model/documentation-filter-form.model";
 import {DocumentationService} from "../../../service/documentation.service";
 import {DocumentFlowModel} from "../../../model/document-flow.model";
 import {Subscription} from "rxjs";
@@ -46,5 +44,9 @@ export class GenerateDocsComponent implements OnInit, OnDestroy {
 
   navigateToRegisterFlowPage(): void {
     this.router.navigate(['/documentation/flows-manager']);
+  }
+
+  goBack(): void {
+    this.router.navigate(['/documentation/']);
   }
 }

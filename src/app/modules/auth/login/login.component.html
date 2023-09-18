@@ -2,9 +2,9 @@
   <div class="login-form-wrapper p-3">
     <form [formGroup]="loginForm">
       <div class="mat-form-field">
-        <label class="text-white">Email</label>
+        <label class="text-white">User Name</label>
         <mat-form-field appearance="outline">
-          <input matInput placeholder="user@example.com" [formControl]="getFControl('email')" required>
+          <input matInput placeholder="User Name" [formControl]="getFControl('email')" required>
           <mat-error *ngIf="getFControl('email').invalid">{{getFControlErrorMessage('email')}}</mat-error>
         </mat-form-field>
       </div>

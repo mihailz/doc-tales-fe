@@ -10,29 +10,62 @@ $custom-accent: #FF9800;
   flex-direction: column;
   min-height: 100vh;
 
-  .flow-select {
+
+  .mat-card-header {
     display: flex;
-    align-items: baseline;
-    gap: 10px;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+    padding: 15px 0;
 
-    .mat-form-field, .register-flow-btn {
-      flex: 1;
-    }
+    .back-btn {
+      border: 1px solid white;
+      border-radius: 10px;
+      height: 40px;
+      padding: 0 12px;
+      color: white;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
 
-    .register-flow-btn {
-      max-width: fit-content;
-      background: colors.$primary;
-      color: colors.$color-white;
+      .mat-icon {
+        margin-right: 8px;
+      }
 
       &:hover {
-        opacity: .5;
+        background-color: colors.$primary;
+        border-color: colors.$primary;
       }
     }
   }
 
-  .actions {
-    display: flex;
-    gap: 10px;
+  .content-wrapper {
+    padding-top: 15px;
+    .flow-select {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+
+      .mat-form-field, .register-flow-btn {
+        flex: 1;
+      }
+
+      .register-flow-btn {
+        max-width: fit-content;
+        background: colors.$primary;
+        color: colors.$color-white;
+        height: 50px;
+        padding: 12px;
+
+        &:hover {
+          opacity: .5;
+        }
+      }
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+    }
   }
 }
 

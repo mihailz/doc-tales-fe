@@ -1,4 +1,5 @@
 @import "assets/styles/mat-form-field";
+@import "assets/styles/mat-spinner";
 @import 'prismjs/themes/prism-okaidia.css';
 @import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
 @import 'prismjs/plugins/line-highlight/prism-line-highlight.css';
@@ -14,6 +15,6 @@ html, body {
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 code {
-  color: forestgreen;
+  color: #48D1CC;
   font-style: italic;
 }

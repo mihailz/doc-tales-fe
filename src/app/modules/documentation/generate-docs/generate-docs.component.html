@@ -1,7 +1,8 @@
 <div class="generate-docs-container">
   <mat-card class="generate-docs-card">
     <mat-card-header>
-      <mat-card-title class="form-card-title">Document assistant</mat-card-title>
+      <mat-card-title class="form-card-title">Document Generator</mat-card-title>
+      <a (click)="goBack()" class="back-btn"><mat-icon>keyboard_backspace</mat-icon>Back</a>
     </mat-card-header>
     <mat-card-content>
       <div class="content-wrapper">
@@ -18,7 +19,7 @@
           <button class="register-flow-btn" (click)="navigateToRegisterFlowPage()" mat-flat-button color="primary">
             <mat-icon>app_registration</mat-icon> Flow manager</button>
         </div>
-        <app-text-editor *ngIf="selectedFlow"></app-text-editor>
+        <app-text-editor [flow]="selectedFlow"></app-text-editor>
       </div>
     </mat-card-content>
   </mat-card>

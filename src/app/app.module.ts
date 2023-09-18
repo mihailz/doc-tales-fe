@@ -8,6 +8,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {Route, RouterModule} from "@angular/router";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {MarkdownModule} from "ngx-markdown";
+import { FlowTreeComponent } from './components/shared/flow-tree/flow-tree.component';
 
 const routes: Route[] = [
   {
@@ -28,18 +29,22 @@ const routes: Route[] = [
 ]
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LayoutComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    RouterModule.forRoot(routes),
-    HttpClientModule,
-    MarkdownModule.forRoot(),
-  ],
-  providers: [ImagesService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        LayoutComponent,
+        FlowTreeComponent
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        RouterModule.forRoot(routes),
+        HttpClientModule,
+        MarkdownModule.forRoot(),
+    ],
+    providers: [ImagesService],
+    exports: [
+        FlowTreeComponent
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

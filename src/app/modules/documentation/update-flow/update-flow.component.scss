@@ -31,16 +31,42 @@ $custom-accent: #FF9800;
     height: 100vh;
   }
 
-  .update-flow-title {
-    color: white;
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 20px;
+  .mat-card-header {
+    display: flex;
+    justify-content: space-between;
+
+    .back-btn {
+      border: 1px solid white;
+      border-radius: 10px;
+      height: 40px;
+      padding: 0 12px;
+      color: white;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      .mat-icon {
+        margin-right: 8px;
+      }
+
+      &:hover {
+        background-color: colors.$primary;
+        border-color: colors.$primary;
+      }
+    }
+
+    .update-flow-title {
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
   }
 
   .content-wrapper {
     color: white;
     display: flex;
+    border-radius: 10px;
     border: 1px solid white;
 
     .create-flow {
@@ -72,9 +98,9 @@ $custom-accent: #FF9800;
       color: white;
       padding: 15px;
       flex: 1;
-      background: #333333;
+      min-height: 400px;
       height: 400px;
-      overflow-y: scroll;
+      overflow-y: auto;
 
       &::-webkit-scrollbar {
         background: colors.$primary;

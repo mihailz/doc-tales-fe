@@ -3,80 +3,79 @@
 $custom-primary: #3F51B5;
 $custom-accent: #FF9800;
 
-  table {
-    width: 100%;
-    overflow: auto;
+table {
+  width: 100%;
+  overflow: auto;
+  border: 1px solid white;
 
-      .edit-btn {
-        color: white;
-      }
+  .edit-btn {
+    color: white;
+  }
 
-    .edit-btn, .delete-btn {
-      &:hover {
-        opacity: .7;
-      }
+  .edit-btn, .delete-btn {
+    &:hover {
+      opacity: .7;
     }
   }
+}
 
-  .user-role-form-field {
-    border: 1px solid white;
-    width: 100px;
+.user-role-form-field {
+  border: 1px solid white;
+  width: 100px;
+}
 
-    //&::ng-deep.mat-select-arrow {
-    //  display: none;
-    //}
-  }
+.mat-header-cell {
+  background-color: colors.$primary;
+  color: colors.$color-white;
+  padding: 5px;
+}
 
-  .mat-header-cell {
+.mat-cell {
+  padding: 5px;
+  color: colors.$color-white;
+}
+
+.mat-row {
+  &:nth-child(even) {
     background-color: colors.$primary;
     color: colors.$color-white;
-    padding: 5px;
   }
 
-  .mat-cell {
-    padding: 5px;
+  &:nth-child(odd) {
+    background-color: colors.$color-black;
+    color: colors.$color-white;
+  }
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-paginator {
+  background-color: colors.$color-black;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border: 1px solid white;
+  border-top: none;
+
+  ::ng-deep .mat-paginator-page-size {
     color: colors.$color-white;
   }
 
-  .mat-row {
-    &:nth-child(even) {
+  ::ng-deep .mat-paginator-range-actions {
+    .mat-paginator-range-label {
+      color: colors.$color-white;
+    }
+
+    .mat-icon-button {
       background-color: colors.$primary;
-      color: colors.$color-white;
-    }
-
-    &:nth-child(odd) {
-      background-color: colors.$color-black;
+      margin: 2px;
+      cursor: pointer;
       color: colors.$color-white;
     }
   }
-
-  .mat-mdc-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
-
-  .mat-paginator {
-    background-color: colors.$color-black;
-    padding-top: 8px;
-    padding-bottom: 8px;
-
-    ::ng-deep .mat-paginator-page-size {
-      color: colors.$color-white;
-    }
-
-    ::ng-deep .mat-paginator-range-actions {
-      .mat-paginator-range-label {
-        color: colors.$color-white;
-      }
-
-      .mat-icon-button {
-        background-color: colors.$primary;
-        margin: 2px;
-        cursor: pointer;
-        color: colors.$color-white;
-      }
-    }
-  }
+}
 
 .generate-flow-container {
   display: flex;
@@ -84,6 +83,13 @@ $custom-accent: #FF9800;
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
+
+  .mat-card-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+    padding: 10px 0;
+  }
 }
 
 ::ng-deep .mat-card-header {
@@ -106,17 +112,42 @@ $custom-accent: #FF9800;
     height: 100vh;
   }
 
-  .generate-flow-title {
-    color: white;
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-
   .content-wrapper {
     color: white;
     display: flex;
-    border: 1px solid white;
+    padding-top: 20px;
+  }
+
+  .mat-card-header {
+    display: flex;
+    justify-content: space-between;
+
+    .back-btn {
+      border: 1px solid white;
+      border-radius: 10px;
+      height: 40px;
+      padding: 0 12px;
+      color: white;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      .mat-icon {
+        margin-right: 8px;
+      }
+
+      &:hover {
+        background-color: colors.$primary;
+        border-color: colors.$primary;
+      }
+    }
+
+    .generate-flow-title {
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
   }
 }
 

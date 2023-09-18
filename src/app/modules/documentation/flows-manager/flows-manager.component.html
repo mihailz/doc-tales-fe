@@ -2,43 +2,48 @@
   <mat-card class="generate-flow-card">
     <mat-card-header>
       <mat-card-title class="generate-flow-title">Flows Manager</mat-card-title>
+      <a (click)="goBack()" class="back-btn">
+        <mat-icon>keyboard_backspace</mat-icon>
+        Back</a>
     </mat-card-header>
     <mat-card-content>
-      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-        <ng-container *ngFor="let column of displayedColumnsWithActions">
-          <ng-container [matColumnDef]="column">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>
-              {{ tableHeaderColumn[column] || column}}
-            </th>
-            <ng-container *ngIf="column !== 'actions' else actions">
-              <td mat-cell *matCellDef="let row; let id = index">
-                {{ row[column] }}
-              </td>
+      <div class="content-wrapper">
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+          <ng-container *ngFor="let column of displayedColumnsWithActions">
+            <ng-container [matColumnDef]="column">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                {{ tableHeaderColumn[column] || column}}
+              </th>
+              <ng-container *ngIf="column !== 'actions' else actions">
+                <td mat-cell *matCellDef="let row; let id = index">
+                  {{ row[column] }}
+                </td>
+              </ng-container>
+
+              <ng-template #actions>
+                <td mat-cell *matCellDef="let row">
+                  <button (click)="goToUpdateFlow(row)" class="edit-btn" mat-icon-button color="primary">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                  <button class="delete-btn" mat-icon-button color="warn">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </td>
+              </ng-template>
             </ng-container>
-
-            <ng-template #actions>
-            <td mat-cell *matCellDef="let row">
-              <button (click)="goToUpdateFlow(row)" class="edit-btn" mat-icon-button color="primary">
-                <mat-icon>edit</mat-icon>
-              </button>
-              <button class="delete-btn" mat-icon-button color="warn">
-                <mat-icon>delete</mat-icon>
-              </button>
-            </td>
-            </ng-template>
           </ng-container>
-        </ng-container>
-        <tr mat-header-row *matHeaderRowDef="displayedColumnsWithActions"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumnsWithActions;"></tr>
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsWithActions"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsWithActions;"></tr>
 
-        <ng-container *ngIf="!isFetchingData">
-          <tr class="mat-row" *matNoDataRow>
-            <td class="mat-cell text-center" colspan="3">
-              <span class="text-white">No data...</span>
-            </td>
-          </tr>
-        </ng-container>
-      </table>
+          <ng-container *ngIf="!isFetchingData">
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell text-center" colspan="3">
+                <span class="text-white">No data...</span>
+              </td>
+            </tr>
+          </ng-container>
+        </table>
+      </div>
       <mat-paginator [length]="dataSource.data.length"
                      [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
     </mat-card-content>

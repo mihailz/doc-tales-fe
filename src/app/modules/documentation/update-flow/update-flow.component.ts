@@ -1,10 +1,14 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {DocumentFlowModel} from "../../../model/document-flow.model";
 import {DocumentationService} from "../../../service/documentation.service";
-import {ActivatedRoute, Params} from "@angular/router";
-import {map, mergeMap, Subscription, switchMap} from "rxjs";
-import {Project} from "../../../model/project.model";
+import {ActivatedRoute, Params, Router} from "@angular/router";
+import {forkJoin, map, Subscription, switchMap} from "rxjs";
+import {ClassModel, Project} from "../../../model/project.model";
+
+interface FlowMode {
+  name: string;
+  children?: FlowMode[];
+}
 
 @Component({
   selector: 'app-update-flow',
@@ -13,16 +17,23 @@ import {Project} from "../../../model/project.model";
 })
 export class UpdateFlowComponent implements OnInit, OnDestroy {
 
-  updateFlowForm!: FormGroup;
   currentFlow!: DocumentFlowModel;
   currentProject!: Project;
+
+  projectClasses: string[] = [];
+  selectedClasses: string[] = [];
+
+  flowMethods: string[] = [];
+  selectedMethods: string[] = [];
+
   private _subs$ = new Subscription();
 
   constructor(private activatedRoute: ActivatedRoute,
-              private _documentationService: DocumentationService) { }
+              private _router: Router,
+              private _documentationService: DocumentationService) {
+  }
 
   ngOnInit(): void {
-    this.initUpdateFlowGroup();
     this.getCurrentFlow();
   }
 
@@ -35,35 +46,49 @@ export class UpdateFlowComponent implements OnInit, OnDestroy {
       .pipe(
         map((params: Params) => params['id']),
         switchMap((flowId: number) =>
-          this._documentationService.getDocumentationFlowById(flowId)),
-        mergeMap((flow: DocumentFlowModel) => {
-          this.currentFlow = flow;
-          return this._documentationService.getProjectById(flow.projectId);
-        })
+          forkJoin([
+            this._documentationService.getDocumentationFlowById(flowId),
+            this._documentationService.getProjectById(flowId)
+          ])
+        ),
       )
       .subscribe({
-        next: (project: Project) => {
+        next: ([flow, project]: [DocumentFlowModel, Project]) => {
+          this.currentFlow = flow;
           this.currentProject = project;
-          console.log('Project', this.currentProject);
+          this.projectClasses = this.currentProject.classes.map((classItem: ClassModel) => classItem.name);
+          this.selectedClasses = this.currentFlow.classes.map((classItem: ClassModel) => classItem.name);
+          this.filterSelectedMethods(this.selectedClasses);
         },
       });
-
     this._subs$.add(sub$);
   }
 
-  private initUpdateFlowGroup(): void {
-    this.updateFlowForm = new FormGroup<any>({
-      flowName: new FormControl('', [Validators.required]),
-      classes: new FormArray([]),
-      methods: new FormArray([])
-    })
+  filterSelectedMethods(selectedClasses: string[]): void {
+    const classes = this.currentProject.classes.filter((projectClass: ClassModel) =>
+      selectedClasses.some((selectedClass: string) => projectClass.name === selectedClass));
+
+    const currentMethods: string[] = [];
+    classes.forEach((classItem: ClassModel) =>
+      classItem.methods.forEach((method: string) =>
+        currentMethods.push(method)));
+
+    const currentSelectedMethods: string[] = [];
+    this.currentFlow.classes.forEach((classItem: ClassModel) =>
+      classItem.methods.forEach((method: string) =>
+        currentSelectedMethods.push(method)
+      ))
+
+    this.flowMethods = [...currentMethods];
+    this.selectedMethods = [...currentSelectedMethods];
   }
 
-  private getProject(): void{
-    this._documentationService.getProjectById(this.currentFlow.projectId).subscribe({
-      next: (value: Project) => {
-        console.log("Project", value)
-      }
-    })
+  onClassSelectionChange(selectedClasses: string[]): void {
+    this.selectedClasses = selectedClasses;
+    this.filterSelectedMethods(this.selectedClasses);
+  }
+
+  goBack(): void {
+    this._router.navigate(['/documentation/flows-manager']);
   }
 }

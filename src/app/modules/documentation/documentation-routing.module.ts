@@ -5,10 +5,15 @@ import {GenerateDocsComponent} from "./generate-docs/generate-docs.component";
 import {GenerateFlowComponent} from "./generate-flow/generate-flow.component";
 import {FlowsManagerComponent} from "./flows-manager/flows-manager.component";
 import {UpdateFlowComponent} from "./update-flow/update-flow.component";
+import {PlatformComponent} from "./platform/platform.component";
 
 const routes: Route[] = [
   {
     path: '',
+    component: PlatformComponent
+  },
+  {
+    path: 'document-generator',
     component: GenerateDocsComponent
   },
   {

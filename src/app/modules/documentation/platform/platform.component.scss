@@ -1,0 +1,68 @@
+@use "src/assets/styles/colors" as colors;
+
+$custom-primary: #3F51B5;
+$custom-accent: #FF9800;
+
+.platform-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+::ng-deep .mat-card-header {
+  .mat-card-header-text {
+    margin: 0;
+  }
+}
+
+.platform-card {
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 1);
+  padding: 30px;
+  border-radius: 10px;
+  background: none;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    max-width: none;
+    height: 100vh;
+  }
+
+  .platform-card-title {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+
+  .platform-options {
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    .platform {
+      border: 1px solid white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 150px;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(255, 255, 255, 1);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease ;
+
+      &:hover {
+        transform: translateY(-8px);
+        background-color: lightgray;
+        color: #333333;
+        opacity: 0.8;
+      }
+    }
+  }
+}
