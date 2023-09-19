@@ -1,3 +1,5 @@
+@use "src/assets/styles/colors" as colors;
+
 .loading-indicator {
   display: flex;
   justify-content: center;
@@ -25,5 +27,5 @@
 }
 
 .mat-progress-spinner circle, .mat-spinner circle {
-  stroke: darkblue;
+  stroke: colors.$primary;
 }

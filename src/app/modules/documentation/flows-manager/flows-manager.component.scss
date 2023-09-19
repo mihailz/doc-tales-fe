@@ -12,6 +12,10 @@ table {
     color: white;
   }
 
+  .delete-btn {
+    color: #fba200;
+  }
+
   .edit-btn, .delete-btn {
     &:hover {
       opacity: .7;
@@ -37,13 +41,17 @@ table {
 
 .mat-row {
   &:nth-child(even) {
-    background-color: colors.$primary;
+    background-color: #333333;
     color: colors.$color-white;
   }
 
   &:nth-child(odd) {
     background-color: colors.$color-black;
     color: colors.$color-white;
+  }
+
+  &:hover {
+    background-color: colors.$primary;
   }
 }
 

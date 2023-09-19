@@ -59,9 +59,8 @@ $custom-accent: #FF9800;
 
       &:hover {
         transform: translateY(-8px);
-        background-color: lightgray;
-        color: #333333;
-        opacity: 0.8;
+        background-color: colors.$primary;
+        color: white;
       }
     }
   }

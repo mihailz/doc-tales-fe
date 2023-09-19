@@ -1,8 +1,5 @@
 @use "src/assets/styles/colors" as colors;
 
-$custom-primary: #3F51B5;
-$custom-accent: #FF9800;
-
 .generate-docs-container {
   display: flex;
   justify-content: center;
@@ -54,7 +51,8 @@ $custom-accent: #FF9800;
         background: colors.$primary;
         color: colors.$color-white;
         height: 50px;
-        padding: 12px;
+        position: relative;
+        bottom: 5px;
 
         &:hover {
           opacity: .5;

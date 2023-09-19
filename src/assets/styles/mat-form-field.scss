@@ -1,5 +1,4 @@
-/* Set the outline border color to white */
-
+@use "src/assets/styles/colors" as colors;
 .mat-form-field {
   width: 100%;
 }
@@ -37,8 +36,8 @@
 
 /* Set the background color for selected and hover options */
 .mat-select-panel .mat-option.mat-selected, .mat-select-panel.mat-select-dark .mat-option:hover {
-  background-color: #00008B; /* Replace $primary with the actual color value */
-  color: white; /* Text color for selected option */
+  //background-color: colors.$primary; /* Replace $primary with the actual color value */
+  color: #333333!important;
 }
 
 
@@ -53,13 +52,6 @@
 .mat-form-field .mat-form-field-label,
 .mat-form-field .mat-placeholder {
   color: white;
-}
-
-.mat-option {
-  &.mat-selected, &:hover {
-    background-color: #00008B !important;
-    color: white !important;
-  }
 }
 
 
