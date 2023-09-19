@@ -10,7 +10,7 @@ interface FlowNode {
 const TREE_DATA: FlowNode[] = [
   {
     name: 'Pet',
-    children: [{name: 'getPetName()'}, {name: 'setAge()'}],
+    children: [{name: 'getPetName()'}],
   }
 ];
 
