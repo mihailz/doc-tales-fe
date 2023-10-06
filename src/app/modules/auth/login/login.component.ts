@@ -46,6 +46,6 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-    this.router.navigate(['/documentation']);
+    this.router.navigate(['/platform']);
   }
 }

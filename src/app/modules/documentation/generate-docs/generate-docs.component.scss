@@ -1,68 +1,40 @@
 @use "src/assets/styles/colors" as colors;
 
-.generate-docs-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  min-height: 100vh;
+.generate-docs-card {
+  min-width: 80%;
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+  box-shadow: none;
+  background: none;
+  padding-bottom: 80px;
 
-
-  .mat-card-header {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid white;
-    padding: 15px 0;
-
-    .back-btn {
-      border: 1px solid white;
-      border-radius: 10px;
-      height: 40px;
-      padding: 0 12px;
-      color: white;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-
-      .mat-icon {
-        margin-right: 8px;
-      }
-
-      &:hover {
-        background-color: colors.$primary;
-        border-color: colors.$primary;
-      }
-    }
+  .form-card-title {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
   }
 
   .content-wrapper {
     padding-top: 15px;
-    .flow-select {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
 
-      .mat-form-field, .register-flow-btn {
-        flex: 1;
-      }
+    .generate-docs-form {
+      //display: grid;
+      //grid-template-columns: repeat(1, 1fr);
+      //grid-row-gap: 0;
+      //grid-column-gap: 16px;
+    }
 
       .register-flow-btn {
-        max-width: fit-content;
         background: colors.$primary;
         color: colors.$color-white;
-        height: 50px;
-        position: relative;
-        bottom: 5px;
+        height: 40px;
+        padding: 6px;
 
         &:hover {
           opacity: .5;
         }
-      }
-    }
-
-    .actions {
-      display: flex;
-      gap: 10px;
     }
   }
 }
@@ -73,25 +45,46 @@
   }
 }
 
-.generate-docs-card {
-  width: 100%;
-  max-width: 800px;
-  box-shadow: 0 2px 5px rgba(255, 255, 255, 1);
-  padding: 30px;
-  border-radius: 10px;
-  background: none;
+@media(min-width: 768px) {
+  .generate-docs-card {
+    width: 80%;
+    min-width: 80%;
+    .content-wrapper {
+      padding-top: 0;
+      .generate-docs-form {
+        display: grid;
+        grid-column-gap: 16px;
+        grid-template-areas:
+          'box1 box1 box1 box1 box1 box1 box1 box1 box1'
+          'box2 box2 box2 box2 box2 box2 box2 box2 box3';
 
-  @media screen and (max-width: 600px) {
-    width: 100%;
-    max-width: none;
-    height: 100vh;
+        .flow {
+          grid-area: box1;
+        }
+
+        .documentation-options {
+          grid-area: box2;
+        }
+
+        .register-flow-btn {
+          grid-area: box3;
+        }
+
+        .register-flow-btn {
+          height: 52px;
+          position: relative;
+          top: 3px;
+
+          &:hover {
+            opacity: .5;
+          }
+        }
+      }
+    }
+
+    .text-editor-container {
+      height: 420px;
+    }
   }
-}
-
-.form-card-title {
-  color: white;
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 20px;
 }
 

@@ -1,0 +1,121 @@
+@use "src/assets/styles/colors" as colors;
+
+.ai-architect-docs-card {
+  min-width: 90%;
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+  box-shadow: none;
+  background: none;
+  padding-bottom: 80px;
+
+  .form-card-title {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .content-wrapper {
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .ai-architect-form {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-row-gap: 0;
+      grid-column-gap: 16px;
+    }
+
+    .mat-form-field, .register-flow-btn {
+      flex: 1;
+    }
+      .register-flow-btn {
+        background: colors.$primary;
+        color: colors.$color-white;
+        height: 40px;
+        padding: 6px;
+        width: 100%;
+
+        &:hover {
+          opacity: .5;
+        }
+      }
+  }
+}
+
+::ng-deep .mat-card-header {
+  .mat-card-header-text {
+    margin: 0;
+  }
+}
+
+@media(min-width: 768px) {
+  .ai-architect-docs-card {
+    .content-wrapper {
+      padding-top: 0;
+      .ai-architect-form {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+        .register-flow-btn {
+          height: 52px;
+          position: relative;
+          top: 3px;
+
+          &:hover {
+            opacity: .5;
+          }
+        }
+    }
+
+    .text-editor-container {
+      height: 420px;
+    }
+  }
+}
+
+@media(min-width: 992px) {
+  .ai-architect-docs-card {
+    min-width: 80%;
+    width: 80%;
+    .content-wrapper {
+      .ai-architect-form {
+        grid-template-areas:
+          'box1 box2 box3 box4'
+          'box5 box6 box6 box7' ;
+      }
+
+      .architecture-type {
+        grid-area: box1;
+      }
+
+      .data-architecture-options {
+        grid-area: box2;
+      }
+
+      .deployment-strategy-options {
+        grid-area: box3;
+      }
+
+      .front-end-options {
+        grid-area: box4;
+      }
+
+      .technology-stack-options {
+        grid-area: box5;
+      }
+
+      .security-options {
+        grid-area: box6;
+      }
+
+      .register-flow-btn {
+        grid-area: box7;
+      }
+    }
+  }
+}
+

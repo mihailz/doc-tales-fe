@@ -1,24 +1,5 @@
 <div class="text-editor-container">
   <div class="editor-actions">
-    <button mat-flat-button [matMenuTriggerFor]="generateMenu" matTooltip="Generate">
-      <mat-icon>bolt</mat-icon>
-    </button>
-
-    <mat-menu #generateMenu="matMenu">
-      <button (click)="generateDocumentation(documentationType.TECHNICAL)" mat-menu-item>
-        <mat-icon>description</mat-icon>
-        Technical documentation
-      </button>
-      <button (click)="generateDocumentation(documentationType.BUSINESS)" mat-menu-item>
-        <mat-icon>account_tree</mat-icon>
-        Business documentation
-      </button>
-      <button (click)="generateDocumentation(documentationType.CODE)" mat-menu-item>
-        <mat-icon>code</mat-icon>
-        Code Assistant
-      </button>
-    </mat-menu>
-
     <button (click)="copyText()" mat-flat-button matTooltip="Copy to clipboard">
       <mat-icon>content_copy</mat-icon>
     </button>
@@ -41,15 +22,13 @@
 
   </div>
   <div class="content">
-    <ng-container *ngIf="isLoading else content">
-      <div class="loading-indicator">
-        <mat-spinner></mat-spinner>
+    <ng-container *ngIf="!isLoading && !markdownText">
+      <div class="typing-animation">
+        <span class="text">Response will be generated here...</span>
       </div>
     </ng-container>
-    <ng-template #content>
-      <div markdown
-           class="variable-binding"
-           [data]="markdown"></div>
-    </ng-template>
+    <div markdown
+         class="markdown-content"
+         [data]="markdownText"></div>
   </div>
 </div>

@@ -1,0 +1,91 @@
+<mat-card class="ai-architect-docs-card">
+  <ng-container *ngIf="isLoading">
+    <div class="loading-indicator">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-container>
+  <mat-card-header>
+    <mat-card-title class="form-card-title">Ai Architect</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="content-wrapper">
+      <form [formGroup]="aiArchitectFormGroup" *ngIf="filterOptions">
+        <div class="ai-architect-form">
+            <div class="mat-form-field architecture-type">
+              <mat-form-field appearance="outline">
+                <mat-label>Architecture type</mat-label>
+                <mat-select [placeholder]="'Select architecture type'" formControlName="architectureType">
+                  <ng-container></ng-container>
+                  <mat-option *ngFor="let option of filterOptions.architectureOptions" [value]="option">
+                    {{option}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="getFControl('architectureType').invalid">{{getFControlErrorMessage('architectureType')}}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="mat-form-field data-architecture-options">
+              <mat-form-field appearance="outline">
+                <mat-label>Data Architecture</mat-label>
+                <mat-select [placeholder]="'Select data architecture'" formControlName="dataArchitecture">
+                  <ng-container></ng-container>
+                  <mat-option *ngFor="let option of filterOptions.dataArchitectureOptions" [value]="option">
+                    {{option}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="getFControl('dataArchitecture').invalid">{{getFControlErrorMessage('dataArchitecture')}}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="mat-form-field deployment-strategy-options">
+              <mat-form-field appearance="outline">
+                <mat-label>Deployment Strategy</mat-label>
+                <mat-select [placeholder]="'Select deployment strategy'" formControlName="deploymentStrategies">
+                  <ng-container></ng-container>
+                  <mat-option *ngFor="let option of filterOptions.deploymentStrategyOptions" [value]="option">
+                    {{option}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="getFControl('deploymentStrategies').invalid">{{getFControlErrorMessage('deploymentStrategies')}}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="mat-form-field front-end-options">
+              <mat-form-field appearance="outline">
+                <mat-label>Front End</mat-label>
+                <mat-select [placeholder]="'Select front-end type'" formControlName="frontEnd">
+                  <ng-container></ng-container>
+                  <mat-option *ngFor="let option of filterOptions.frontEndOptions" [value]="option">
+                    {{option}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="getFControl('frontEnd').invalid">{{getFControlErrorMessage('frontEnd')}}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="mat-form-field technology-stack-options">
+              <mat-form-field appearance="outline">
+                <mat-label>Technology Stack</mat-label>
+                <mat-select [placeholder]="'Select technology stack'" formControlName="technologyStack">
+                  <ng-container></ng-container>
+                  <mat-option *ngFor="let option of filterOptions.technologyStackOptions" [value]="option">
+                    {{option}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="getFControl('technologyStack').invalid">{{getFControlErrorMessage('technologyStack')}}</mat-error>
+              </mat-form-field>
+          </div>
+            <div class="mat-form-field security-options">
+              <mat-form-field appearance="outline">
+                <mat-label>Security Options</mat-label>
+                <mat-select [placeholder]="'Select security options'" formControlName="securityOptions">
+                  <ng-container></ng-container>
+                  <mat-option *ngFor="let option of filterOptions.securityOptions" [value]="option">
+                    {{option}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="getFControl('securityOptions').invalid">{{getFControlErrorMessage('securityOptions')}}</mat-error>
+              </mat-form-field>
+          </div>
+          <button type="submit" (click)="generate()" class="register-flow-btn" mat-flat-button color="primary">
+            <mat-icon>app_registration</mat-icon>
+            GENERATE
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="text-editor-container" style="padding-top: 10px">
+      <app-text-editor [markdownText]="markdownString"></app-text-editor>
+    </div>
+  </mat-card-content>
+</mat-card>

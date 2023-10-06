@@ -1,4 +1,5 @@
 @use "src/assets/styles/colors" as colors;
+
 .mat-form-field {
   width: 100%;
 }
@@ -12,9 +13,56 @@
   color: white;
 }
 
+.mat-form-field-invalid {
+  .mat-form-field-outline-thick {
+    border: 2px solid red;
+    border-radius: 4px;
+
+    .mat-form-field-outline-gap {
+      border: none;
+    }
+
+
+    .mat-form-field-outline-start, .mat-form-field-outline-gap, .mat-form-field-outline-end {
+      color: transparent;
+    }
+  }
+
+  .mat-form-field-label-wrapper {
+    .mat-form-field-label {
+      mat-label {
+        background: #3c4560;
+        padding-left: 5px;
+        padding-right: 15px;
+      }
+    }
+
+    .mat-form-field-required-marker {
+      position: relative;
+      left: -15px;
+    }
+  }
+}
+
+.mat-form-field-label-wrapper {
+  .mat-form-field-label {
+    mat-label {
+      color: white;
+    }
+  }
+}
+
 
 .mat-form-field .mat-form-field-outline {
   color: white;
+
+  .mat-form-field-outline-gap {
+    color: white;
+  }
+
+    .mat-select-arrow {
+      color: white;
+    }
 }
 
 .mat-form-field-disabled {
@@ -37,7 +85,7 @@
 /* Set the background color for selected and hover options */
 .mat-select-panel .mat-option.mat-selected, .mat-select-panel.mat-select-dark .mat-option:hover {
   //background-color: colors.$primary; /* Replace $primary with the actual color value */
-  color: #333333!important;
+  color: #333333 !important;
 }
 
 

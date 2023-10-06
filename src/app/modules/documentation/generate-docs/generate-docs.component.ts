@@ -1,52 +1,63 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DocumentationService} from "../../../service/documentation.service";
-import {DocumentFlowModel} from "../../../model/document-flow.model";
-import {Subscription} from "rxjs";
 import {Router} from "@angular/router";
-import {MatSelectChange} from "@angular/material/select";
+import {GenerateDocsModel} from "../../../model/generate-docs.model";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {DocumentFlowModel} from "../../../model/document-flow.model";
+import {finalize} from "rxjs";
 
 @Component({
   selector: 'app-generate-docs',
   templateUrl: './generate-docs.component.html',
   styleUrls: ['./generate-docs.component.scss']
 })
-export class GenerateDocsComponent implements OnInit, OnDestroy {
+export class GenerateDocsComponent implements OnInit {
 
-  documentationFlows: DocumentFlowModel[] = [];
-  private _subs$ = new Subscription();
-  selectedFlow!: DocumentFlowModel;
+  filterOptions!: GenerateDocsModel;
+  generateDocsForm!: FormGroup;
+  markdown = '';
+  isLoading = false;
 
   constructor(private router: Router,
-              private _documentationService: DocumentationService) { }
+              private _documentationService: DocumentationService) {
+  }
 
   ngOnInit(): void {
-    // this.initDocumentationFilterForm();
-    this.getDocumentationFlows();
-  }
-
-  ngOnDestroy(): void {
-    this._subs$?.unsubscribe();
-  }
-
-  private getDocumentationFlows(): void {
-    this._documentationService.getDocumentationFlows()
+    this.initGenerateDocsForm();
+    this._documentationService.getGenerateDocsOptions()
       .subscribe({
-        next: (flows: DocumentFlowModel[]) => {
-          this.documentationFlows = flows;
+        next: (options: GenerateDocsModel) => {
+          this.filterOptions = options;
+        }
+      })
+  }
+
+  private initGenerateDocsForm(): void {
+    this.generateDocsForm = new FormGroup({
+      flow: new FormControl('', [Validators.required]),
+      documentationType: new FormControl('', [Validators.required])
+    })
+  }
+
+  generateDocumentation(): void {
+    this.setLoading(true);
+    if (this.generateDocsForm.invalid) {
+      return;
+    }
+    const {flow, documentationType} = this.generateDocsForm.getRawValue();
+    this._documentationService.generateDocumentation(flow.projectId, documentationType)
+      .pipe(
+        finalize(() => this.isLoading = false)
+      )
+      .subscribe({
+        next: (res: string) => {
+          this.markdown = res.replace(/\\n\\n/g, '<br />\n')
+            .replace(/\\n/g, '<br />');
         }
       });
   }
 
-  onFlowSelectionChange(changeObject: MatSelectChange) {
-    this._documentationService.setSelectedFlow(changeObject.value);
-    this.selectedFlow = changeObject.value;
-  }
-
-  navigateToRegisterFlowPage(): void {
-    this.router.navigate(['/documentation/flows-manager']);
-  }
-
-  goBack(): void {
-    this.router.navigate(['/documentation/']);
+  private setLoading(loading = false): void {
+    this.isLoading = loading;
   }
 }

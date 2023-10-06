@@ -14,16 +14,20 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatInputModule} from "@angular/material/input";
 import {GenerateFlowComponent} from './generate-flow/generate-flow.component';
-import {FlowsManagerComponent} from './flows-manager/flows-manager.component';
+import {FlowsManagerComponent} from '../administrator/flows-manager/flows-manager.component';
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
 import {UpdateFlowComponent} from './update-flow/update-flow.component';
 import {MatTreeModule} from '@angular/material/tree';
-import {PlatformComponent} from './platform/platform.component';
 import {FlowTreeComponent} from './flow-tree/flow-tree.component';
 import {MarkdownModule} from "ngx-markdown";
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { DocumentationLayoutComponent } from './documentation-layout/documentation-layout.component';
+import {
+  DocumentationNavBarComponent
+} from "./documentation-layout/documentation-nav-bar/documentation-nav-bar.component";
+import { AiArchitectComponent } from './ai-architect/ai-architect.component';
 
 @NgModule({
   declarations: [
@@ -32,8 +36,10 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     GenerateFlowComponent,
     FlowsManagerComponent,
     UpdateFlowComponent,
-    PlatformComponent,
-    FlowTreeComponent
+    FlowTreeComponent,
+    DocumentationLayoutComponent,
+    DocumentationNavBarComponent,
+    AiArchitectComponent
   ],
   imports: [
     CommonModule,

@@ -3,18 +3,22 @@
 @import 'prismjs/themes/prism-okaidia.css';
 @import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
 @import 'prismjs/plugins/line-highlight/prism-line-highlight.css';
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+//@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-/* You can add global styles to this file, and also import other style files */
-html, body {
-  padding: 0;
+html,body {
   margin: 0;
+  padding: 0;
 }
+body {   font-family: "Open Sans", sans-serif; background-color: #3c4560; min-height: 100vh; padding: 1px;
+  position: relative; }
 
-//html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+ .markdown-content {
+  code {
+    color: #48D1CC;
+    font-style: italic;
+  }
 
-code {
-  color: #48D1CC;
-  font-style: italic;
+   p {
+     line-height: 1.5;
+   }
 }

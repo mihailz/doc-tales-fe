@@ -2,19 +2,24 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import {LayoutComponent} from "./components/layout/layout.component";
 import {ImagesService} from "./service/images.service";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {Route, RouterModule} from "@angular/router";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {MarkdownModule} from "ngx-markdown";
 import { FlowTreeComponent } from './components/shared/flow-tree/flow-tree.component';
+import { FooterComponent } from './components/layout/footer/footer.component';
 
 const routes: Route[] = [
   {
     path: 'auth',
     loadChildren: () => import('./modules/auth/auth.module')
       .then(m => m.AuthModule),
+  },
+  {
+    path: 'platform',
+    loadChildren: () => import('./modules/platform/platform-routing.module')
+      .then(m => m.PlatformRoutingModule)
   },
   {
     path: 'documentation',
@@ -31,8 +36,8 @@ const routes: Route[] = [
 @NgModule({
     declarations: [
         AppComponent,
-        LayoutComponent,
-        FlowTreeComponent
+        FlowTreeComponent,
+        FooterComponent
     ],
     imports: [
         BrowserModule,
