@@ -4,14 +4,13 @@
     <img src="/assets/images/robot.png" />
   </div>
   <h2 class="title"><span>ENDAVA</span><span> ENVISIONS</span></h2>
-  <h2 class="current-user">Welcome <b>test@test.com</b></h2>
+  <h2 class="current-user">Welcome <span style="color: #de411b">test@test.com</span></h2>
   <div class="platforms-container">
     <div (click)="navigateTo(platform.navigateTo)" class="platform" *ngFor="let platform of platforms">
       <div class="platform-image-wrapper">
         <img [src]="platform.imageUrl" alt="Platform image"/>
       </div>
       <h3 class="platform-name">{{platform.name}}</h3>
-      <img class="img-click" src="/assets/images/double-click.png" />
     </div>
   </div>
   </div>

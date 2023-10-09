@@ -10,7 +10,12 @@
 .mat-form-field .mat-form-field-outline-thick .mat-form-field-outline-start,
 .mat-form-field .mat-form-field-outline-thick .mat-form-field-outline-end,
 .mat-form-field .mat-input-element::placeholder {
-  color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #000000;
+}
+
+.mat-form-field-infix {
+  color: #000000;
 }
 
 .mat-form-field-invalid {
@@ -31,7 +36,6 @@
   .mat-form-field-label-wrapper {
     .mat-form-field-label {
       mat-label {
-        background: #3c4560;
         padding-left: 5px;
         padding-right: 15px;
       }
@@ -41,28 +45,42 @@
       position: relative;
       left: -15px;
     }
+
+    &:focus {
+      .mat-form-field-label {
+        mat-label {
+          color: white;
+        }
+      }
+    }
   }
 }
 
 .mat-form-field-label-wrapper {
   .mat-form-field-label {
     mat-label {
-      color: white;
+      color: #000000;
+      font-family: 'Roboto', sans-serif;
     }
   }
 }
 
 
-.mat-form-field .mat-form-field-outline {
-  color: white;
+.mat-form-field.mat-form-field-outline {
+  //color: #cccccc;
+  //
+  //.mat-form-field-outline-gap {
+  //  color: #cccccc;
+  //}
+  //
+  //  .mat-select-arrow {
+  //    color: #cccccc;
+  //  }
 
-  .mat-form-field-outline-gap {
-    color: white;
-  }
 
-    .mat-select-arrow {
-      color: white;
-    }
+    //.mat-form-field-outline-start, .mat-form-field-outline-gap, .mat-form-field-outline-end {
+    //  color: #de411b;
+    //}
 }
 
 .mat-form-field-disabled {
@@ -79,28 +97,28 @@
 
 /* Set the text color to white */
 .mat-select .mat-select-placeholder, .mat-select.mat-select-dark .mat-select-value-text {
-  color: white;
+  color: #000000;
 }
 
 /* Set the background color for selected and hover options */
 .mat-select-panel .mat-option.mat-selected, .mat-select-panel.mat-select-dark .mat-option:hover {
   //background-color: colors.$primary; /* Replace $primary with the actual color value */
-  color: #333333 !important;
+  color: #000000 !important;
 }
 
 
 .mat-select-arrow {
-  color: white;
+  color: #000000;
 }
 
 .mat-select-value-text {
-  color: white;
+  color: #000000;
 }
-
-.mat-form-field .mat-form-field-label,
-.mat-form-field .mat-placeholder {
-  color: white;
-}
+//
+//.mat-form-field .mat-form-field-label,
+//.mat-form-field .mat-placeholder {
+//  color: #000000;
+//}
 
 
 

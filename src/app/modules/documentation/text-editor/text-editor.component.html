@@ -1,11 +1,11 @@
 <div class="text-editor-container">
   <div class="editor-actions">
-    <button (click)="copyText()" mat-flat-button matTooltip="Copy to clipboard">
+    <button (click)="copyText()" matTooltip="Copy to clipboard">
       <mat-icon>content_copy</mat-icon>
     </button>
 
     <!-- Export Button with Dropdown Options -->
-    <button mat-flat-button [matMenuTriggerFor]="exportMenu" matTooltip="Export">
+    <button [matMenuTriggerFor]="exportMenu" matTooltip="Export">
       <mat-icon>file_download</mat-icon>
     </button>
 

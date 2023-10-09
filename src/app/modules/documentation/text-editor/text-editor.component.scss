@@ -1,22 +1,34 @@
 @use "src/assets/styles/colors" as colors;
 
 .text-editor-container {
-  border: 1px solid colors.$color-white;
   width: 100%;
   max-width: 100%;
   height: 100%;
-  background-color: #333333;
+  border-radius: 4px;
+
+  border: 1px solid #cccccc;
 
   .editor-actions {
-    border-bottom: 1px solid colors.$color-white;
-    height: 40px;
+    border-bottom: 1px solid #cccccc;
+    padding: 20px 12px;
     display: flex;
     justify-content: flex-end;
 
     button {
-      color: colors.$color-white;
-      background: none;
+      width: 30px;
+      height: 30px;
+      margin: 4px;
+      border-radius: 4px;
+      display: flex;
+      background-color: white;
+      border: 1px solid #64666d;
+      justify-content: center;
 
+      .mat-icon {
+        font-size: 14px;
+        line-height: 30px;
+        color: #64666d;
+      }
         &:hover {
           opacity: .5;
         }
@@ -25,39 +37,34 @@
 
   .content {
     padding: 12px;
-    min-height: 300px;
-    max-height: 300px;
+    min-height: 317px;
+    max-height: 317px;
     overflow-y: scroll;
-    background: #333333;
-    color: colors.$color-white;
-
-    @media(min-width: 768px) {
-      min-height: calc(100% - 20%);
-      max-height: calc(100% - 10%);
-      height: calc(100% - 15.5%);
-    }
+    color: #000000;
 
 
     &::-webkit-scrollbar {
-      //width: 12px;
-      background: colors.$primary;
+      background: #cccccc;
       width: 10px !important; /* width of the entire scrollbar */
     }
 
     &::-webkit-scrollbar-track {
-      background: #333333;
+      background: #cccccc;
+      border-bottom-right-radius: 10px;
       /* color of the tracking area */
     }
 
     &::-webkit-scrollbar-thumb {
       width: 15px;
-      background-color: colors.$primary; /* color of the scroll thumb */
+      background-color: #de411b; /* color of the scroll thumb */
     }
 
 
     .typing-animation {
-      font-size: 24px;
+      font-size: 16px;
       overflow: hidden;
+      color: #333333;
+      width: 300px;
       white-space: nowrap;
       border-right: 2px solid #000;
       animation: typing 3s steps(40), blink-caret 0.5s step-end infinite;

@@ -1,8 +1,10 @@
 @use "src/assets/styles/colors" as colors;
 
+::ng-deep .mat-card {
+  padding: 0!important;
+}
+
 .generate-docs-card {
-  min-width: 80%;
-  width: 90%;
   display: block;
   margin: 0 auto;
   box-shadow: none;
@@ -10,77 +12,63 @@
   padding-bottom: 80px;
 
   .form-card-title {
-    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-transform: uppercase;
     font-size: 28px;
     font-weight: bold;
-    margin-bottom: 20px;
-  }
-
-  .content-wrapper {
-    padding-top: 15px;
-
-    .generate-docs-form {
-      //display: grid;
-      //grid-template-columns: repeat(1, 1fr);
-      //grid-row-gap: 0;
-      //grid-column-gap: 16px;
-    }
-
-      .register-flow-btn {
-        background: colors.$primary;
-        color: colors.$color-white;
-        height: 40px;
-        padding: 6px;
-
-        &:hover {
-          opacity: .5;
-        }
-    }
-  }
-}
-
-::ng-deep .mat-card-header {
-  .mat-card-header-text {
     margin: 0;
+    color: #000000;
+    padding-bottom: 20px;
   }
-}
 
-@media(min-width: 768px) {
-  .generate-docs-card {
-    width: 80%;
-    min-width: 80%;
+  .container {
+
     .content-wrapper {
-      padding-top: 0;
+      background-color: #efeff0;
+      padding: 20px 40px;
+
       .generate-docs-form {
         display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-row-gap: 0;
         grid-column-gap: 16px;
-        grid-template-areas:
-          'box1 box1 box1 box1 box1 box1 box1 box1 box1'
-          'box2 box2 box2 box2 box2 box2 box2 box2 box3';
+      }
 
-        .flow {
-          grid-area: box1;
-        }
-
-        .documentation-options {
-          grid-area: box2;
-        }
-
+      .btn-wrapper {
+        display: flex;
+        justify-content: flex-end;
         .register-flow-btn {
-          grid-area: box3;
-        }
+          justify-content: center;
+          align-items: center;
+          display: flex;
+          background: #64666d;
+          color: colors.$color-white;
+          text-transform: uppercase;
+          font-family: 'Roboto Condensed', sans-serif;
+          font-weight: bold;
 
-        .register-flow-btn {
-          height: 52px;
-          position: relative;
-          top: 3px;
+          .mat-icon {
+            position: relative;
+            bottom: 2px;
+          }
 
           &:hover {
-            opacity: .5;
+            background-color: #c83918;
           }
         }
       }
     }
+
+    .text-editor-container {
+      background-color: white;
+      padding: 40px;
+    }
+  }
+}
+
+
+@media(min-width: 768px) {
+  .generate-docs-card {
 
     .text-editor-container {
       height: 420px;

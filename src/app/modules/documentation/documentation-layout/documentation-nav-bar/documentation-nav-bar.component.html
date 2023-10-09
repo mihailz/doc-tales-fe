@@ -7,9 +7,6 @@
   </div>
   <nav class="navigation-links">
     <div (click)="navigateTo(platform.navigateTo)" *ngFor="let platform of platforms" class="navigation-link">
-      <div class="link-image-wrapper">
-        <img [src]="platform.imageUrl"/>
-      </div>
       <span class="platform-name">{{platform.name}}</span>
     </div>
   </nav>
