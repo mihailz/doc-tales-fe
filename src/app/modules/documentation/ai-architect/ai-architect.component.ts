@@ -56,7 +56,7 @@ export class AiArchitectComponent implements OnInit {
     }
     this.setLoading(true);
     this._documentationService.generateArchitecture(this.aiArchitectFormGroup.getRawValue())
-      .pipe(finalize(() => this.isLoading = false))
+      .pipe(finalize(() => this.setLoading(false)))
       .subscribe({
         next: (markdown: string) => {
           this.markdownString = markdown;
