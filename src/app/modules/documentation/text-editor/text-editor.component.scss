@@ -64,10 +64,9 @@
       font-size: 16px;
       overflow: hidden;
       color: #333333;
-      width: 300px;
+      width: 240px;
       white-space: nowrap;
-      border-right: 2px solid #000;
-      animation: typing 3s steps(40), blink-caret 0.5s step-end infinite;
+      animation: typing 3s steps(40);
     }
 
     @keyframes typing {
@@ -76,16 +75,7 @@
       }
       100% {
         width: 400px;
-      }
-    }
-
-    @keyframes blink-caret {
-      from, to {
-        border-color: transparent;
-        text-blink: white;
-      }
-      50% {
-        border-color: #000;
+        border-right: none;
       }
     }
   }
