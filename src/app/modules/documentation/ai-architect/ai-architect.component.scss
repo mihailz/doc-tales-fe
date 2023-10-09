@@ -85,35 +85,39 @@
       .ai-architect-form {
         grid-template-areas:
           'box1 box2 box3 box4'
-          'box5 box6 box6 box7' ;
+          'box5 box6 box7 box8' ;
       }
 
-      .architecture-type {
+      .flow {
         grid-area: box1;
       }
 
-      .data-architecture-options {
+      .architecture-type {
         grid-area: box2;
       }
 
-      .deployment-strategy-options {
+      .data-architecture-options {
         grid-area: box3;
       }
 
-      .front-end-options {
+      .deployment-strategy-options {
         grid-area: box4;
       }
 
-      .technology-stack-options {
+      .front-end-options {
         grid-area: box5;
       }
 
-      .security-options {
+      .technology-stack-options {
         grid-area: box6;
       }
 
-      .register-flow-btn {
+      .security-options {
         grid-area: box7;
+      }
+
+      .register-flow-btn {
+        grid-area: box8;
       }
     }
   }

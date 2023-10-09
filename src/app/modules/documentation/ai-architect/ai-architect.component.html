@@ -11,6 +11,17 @@
     <div class="content-wrapper">
       <form [formGroup]="aiArchitectFormGroup" *ngIf="filterOptions">
         <div class="ai-architect-form">
+          <div class="mat-form-field flow">
+            <mat-form-field appearance="outline">
+              <mat-label>Flow</mat-label>
+              <mat-select [placeholder]="'Select architecture type'" formControlName="flow">
+                <ng-container></ng-container>
+                <mat-option *ngFor="let flow of filterOptions.flows" [value]="flow">
+                  {{flow.flowName}}</mat-option>
+              </mat-select>
+              <mat-error *ngIf="getFControl('architectureType').invalid">{{getFControlErrorMessage('architectureType')}}</mat-error>
+            </mat-form-field>
+          </div>
             <div class="mat-form-field architecture-type">
               <mat-form-field appearance="outline">
                 <mat-label>Architecture type</mat-label>

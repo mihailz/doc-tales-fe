@@ -105,14 +105,15 @@ export class DocumentationService {
       this.getDeploymentStrategiesOptions(),
       this.getFrontEndOptions(),
       this.getTechnologyStackOptions(),
-      this.getSecurityAndAuthOptions()
+      this.getSecurityAndAuthOptions(),
+      this.getDocumentationFlows()
     ]).pipe(
       map(([architectureOptions, dataArchitectureOptions, deploymentStrategyOptions,
-             frontEndOptions, technologyStackOptions, securityOptions]:
-             [string[], string[], string[], string[], string[], string[]]) => {
+             frontEndOptions, technologyStackOptions, securityOptions, flows]:
+             [string[], string[], string[], string[], string[], string[], DocumentFlowModel[]]) => {
         const filterOptions: AiArchitectFilterModel = {
            architectureOptions, dataArchitectureOptions, deploymentStrategyOptions,
-          frontEndOptions, technologyStackOptions, securityOptions
+          frontEndOptions, technologyStackOptions, securityOptions, flows
         };
         return filterOptions
       })

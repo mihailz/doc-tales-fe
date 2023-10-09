@@ -1,3 +1,5 @@
+import {DocumentFlowModel} from "./document-flow.model";
+
 export interface AiArchitectFilterModel {
   architectureOptions: string[];
   dataArchitectureOptions: string[];
@@ -5,4 +7,5 @@ export interface AiArchitectFilterModel {
   frontEndOptions: string[];
   technologyStackOptions: string[];
   securityOptions: string[];
+  flows?: DocumentFlowModel[];
 }

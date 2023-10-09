@@ -3,18 +3,14 @@
   <div class="robot-image-wrapper">
     <img src="/assets/images/robot.png" />
   </div>
-  <h2 class="title"><span>PROJECT</span><span> ASSISTANT</span></h2>
+  <h2 class="title"><span>ENDAVA</span><span> ENVISIONS</span></h2>
   <h2 class="current-user">Welcome <b>test@test.com</b></h2>
-  <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut nunc tincidunt, vehicula mauris ac, auctor sapien.
-    Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-  </p>
   <div class="platforms-container">
     <div (click)="navigateTo(platform.navigateTo)" class="platform" *ngFor="let platform of platforms">
       <div class="platform-image-wrapper">
         <img [src]="platform.imageUrl" alt="Platform image"/>
       </div>
       <h3 class="platform-name">{{platform.name}}</h3>
-      <p class="platform-description">{{platform.description}}</p>
       <img class="img-click" src="/assets/images/double-click.png" />
     </div>
   </div>

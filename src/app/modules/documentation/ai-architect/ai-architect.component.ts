@@ -47,6 +47,7 @@ export class AiArchitectComponent implements OnInit {
       frontEnd: new FormControl('', [Validators.required]),
       technologyStack: new FormControl('', [Validators.required]),
       securityOptions: new FormControl('', [Validators.required]),
+      flow: new FormControl('', [Validators.required])
     });
   };
 
